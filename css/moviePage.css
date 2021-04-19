@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+	--primary-color: #485460;
+	--secondary-color: #1e272e;
+	--light-color: #d2dae2;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--primary-color);
+	color: var(--light-color);
+	font-family: 'Raleway', sans-serif;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+}
+
+section#movie {
+	background-color: var(--secondary-color);
+	padding: 25px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 90vh;
+	overflow: hidden;
+	margin-top: 10vh;
+}
+
+.row {
+	margin: auto;
+	width: 100%;
+	height: 90vh;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.col1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40%;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	text-align: center;
+	justify-content: right;
+}
+
+.col2 {
+	position: absolute;
+	width: 60%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+
+.movie img {
+	width: 400px;
+	height: 100%;
+	border-radius: 5px;
+	margin-right: 40px;
+}
+
+.movie-info {
+	margin-left: 25px;
+	color: var(--light-color);
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	text-align: left;
+	justify-content: space-evenly;
+	padding: 0.5rem 1rem 1rem;
+	letter-spacing: 0.5px;
+}
+
+.movie-info h2 {
+	padding-bottom: 25px;
+	font-size: 50px;
+}
+
+.movie-info h4 {
+	font-size: 40px;
+	padding-top: 25px;
+	margin-block-end: 0;
+}
+
+.movie-info p {
+	padding: 0;
+	width: 90%;
+	font-size: 20px;
+}
+
+.movie-info span {
+	margin-right: 20px;
+	text-align: center;
+	padding: 0;
+	margin-right: 15px;
+	font-weight: bold;
+}
+
+span.rating {
+	display: inline-block;
+	vertical-align: middle;
+	background-color: var(--primary-color);
+	font-size: 18px;
+	padding: 0.6em;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	font-weight: bold;
+}
+
+span i {
+	display: inline-block;
+	vertical-align: middle;
+	background-color: var(--primary-color);
+	font-size: 18px;
+	padding: 0.9em;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	font-weight: bold;
+}
+
+span i:hover {
+	color: #0be881;
+	background-color: white;
+	font-weight: bolder;
+	height: 60px;
+	width: 60px;
+	padding: 1em;
+	transition: ease-in-out 0.1s;
+	cursor: pointer;
+}
+
+.movie-info span.green {
+	color: #0be881;
+}
+
+.movie-info span.orange {
+	color: #ffa801;
+}
+
+.movie-info span.red {
+	color: #ff3f34;
+}
+
+.overview {
+	background-color: var(--light-color);
+	color: var(--secondary-color);
+	padding: 2rem;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	max-height: 100%;
+	transform: translateY(101%);
+	transition: transform 0.3s ease-in;
+}
+
+.movie:hover .overview {
+	transform: translateY(0);
+}
+
+/* SIMILAR RECOMMENDATIONS */
+.image-carousel-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 450px;
+}
+
+.similar-recommendations {
+	text-align: center;
+	font-size: 40px;
+	margin: 25px 0 0;
+	padding: 0;
+}
+
+.buttons-container button:hover {
+	cursor: pointer;
+	background-color: #0be881;
+	color: #1e272e;
+	padding: 15px 35px;
+	transition: ease-in-out 0.1s;
+	font-size: 17px;
+	font-weight: 800;
+	outline: none;
+}
+
+section.similar-movies {
+	border: none;
+	width: 100vw;
+	height: 100%;
+	background-color: var(--primary-color);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	padding: 25px;
+}
+
+img.similar-movie-image {
+	width: 250px;
+	height: 400px;
+	object-fit: cover;
+	border-radius: 15px;
+	margin: 10px;
+	cursor: pointer;
+}
+
+/* IPAD / TABLET SETTINGS */
+@media screen and (max-width: 1100px) {
+	section#movie {
+		padding: 0;
+		height: 100vh;
+		width: 100vw;
+	}
+
+	.row {
+		flex-direction: column;
+		height: 100vh;
+		width: 100vw;
+		overflow: hidden;
+	}
+
+	.col1 {
+		width: 100vw;
+		justify-content: center;
+	}
+
+	.movie img {
+		height: 100vh;
+		width: 100vw;
+		opacity: 0.3;
+	}
+
+	.col2 {
+		width: 100vw;
+		align-items: center;
+	}
+
+	span.user-score {
+		display: none;
+	}
+
+	.movie-info h2 {
+		font-size: 50px;
+	}
+
+	.movie-info h4 {
+		font-size: 30px;
+	}
+
+	.movie-info p {
+		font-size: 22px;
+	}
+
+	section.similar-movies {
+		border: none;
+		width: 100vw;
+		height: 100%;
+		background-color: white;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		margin: auto;
+		padding: 25px;
+	}
+
+	img.similar-movie-image {
+		opacity: 0.7;
+		width: 250px;
+		height: 400px;
+		object-fit: cover;
+		border-radius: 15px;
+		margin: 10px;
+		cursor: pointer;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	section#movie {
+		padding: 0;
+		height: 100vh;
+	}
+
+	.row {
+		flex-direction: column;
+		height: 100vh;
+		width: 100vw;
+		overflow: hidden;
+	}
+
+	.col1 {
+		width: 100vw;
+		justify-content: center;
+	}
+
+	.movie img {
+		width: 100vw;
+		height: 100vh;
+		opacity: 0.3;
+	}
+
+	.col2 {
+		width: 100vw;
+		align-items: center;
+	}
+
+	span.user-score {
+		display: none;
+	}
+
+	.movie-info h2 {
+		font-size: 50px;
+	}
+
+	.movie-info h4 {
+		font-size: 30px;
+	}
+
+	.movie-info p {
+		font-size: 22px;
+	}
+
+	section.similar-movies,
+	.similar-recommendations {
+		display: none;
+	}
+}
+
+/* MOBILE PHONE SETTINGS */
+@media screen and (max-width: 600px) {
+	section#movie {
+		margin: 0;
+		padding: 0;
+		height: 100vh;
+		width: 100vw;
+		overflow: hidden;
+	}
+	.row {
+		margin: 0;
+		padding: 0;
+		height: 100vh;
+		width: 100vw;
+	}
+	.col1 {
+		margin: 0;
+		padding: 0;
+	}
+	.col2 {
+		margin: 0;
+		padding: 0;
+		align-items: center;
+	}
+
+	.movie img {
+		width: 100%;
+		height: 100vh;
+		opacity: 0.2;
+	}
+
+	span.user-score {
+		display: none;
+	}
+
+	.movie-info h2 {
+		font-size: 40px;
+	}
+
+	.movie-info h4 {
+		font-size: 25px;
+	}
+
+	.movie-info p {
+		font-size: 11px;
+	}
+}
