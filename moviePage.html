@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Font Awesome v5.6.3 CSS -->
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+			integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="moviePage.css" />
+		<link rel="stylesheet" href="css/nav.css" />
+		<title>Movie App</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<span onclick="openNav()" class="mobile-nav-open-icon"><i class="fas fa-bars"></i></span>
+
+				<a href="homePage.html"><img class="logo" src="images/logo.JPG" alt="logo" /></a>
+
+				<form id="form">
+					<input type="text" class="search" id="search" placeholder="search" />
+				</form>
+			</nav>
+
+			<div class="backdrop-container" id="backdrop"></div>
+
+			<div id="mySidenav" class="sidenav-container">
+				<span class="drawer-close-button">
+					<!--icon for closing of the navbar-->
+					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				</span>
+
+				<!--Links on the navbar-->
+				<a href="homePage.html" onclick="closeNav()" id="home-link"><i class="fas fa-home"></i>Home</a>
+				<a href="topRated.html" onclick="closeNav()" id="about-link"><i class="fas fa-star"></i>Top Rated</a>
+				<a href="nowPlaying.html" onclick="closeNav()" id="works-link"><i class="fas fa-film"></i>Now Playing</a>
+				<a href="upcoming.html" onclick="closeNav()" id="contact-link"><i class="fas fa-video"></i>Upcoming</a>
+			</div>
+		</header>
+
+		<section id="movie"></section>
+
+		<h3 class="similar-recommendations" id="similar-recommendations">Movies you might also like:</h3>
+
+		<section id="similar-movies" class="similar-movies"></section>
+
+		<script src="moviePage.js"></script>
+		<script src="js/nav.js"></script>
+		<script>
+			getMovie();
+		</script>
+	</body>
+</html>
