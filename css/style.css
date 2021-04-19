@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+	--primary-color: #485460;
+	--secondary-color: #1e272e;
+	--light-color: #d2dae2;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #1e272e;
+	color: var(--light-color);
+	font-family: 'Raleway', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 10vh;
+}
+
+.movie {
+	width: 300px;
+	margin: 1rem;
+	background-color: black;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+	position: relative;
+	overflow: hidden;
+	border: 3px;
+}
+
+.movie img {
+	width: 100%;
+}
+
+.movie-info {
+	color: var(--light-color);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem 1rem 1rem;
+	letter-spacing: 0.5px;
+}
+
+.movie-info h3 {
+	margin-top: 0;
+}
+
+.movie-info span {
+	background-color: var(--primary-color);
+	padding: 0.25rem 0.5rem;
+	border-radius: 10px;
+	height: 40px;
+	width: 40px;
+	font-weight: bold;
+}
+
+.movie-info span.green {
+	color: #0be881;
+}
+.movie-info span.orange {
+	color: #ffa801;
+}
+.movie-info span.red {
+	color: #ff3f34;
+}
+
+.overview {
+	background-color: var(--light-color);
+	color: var(--secondary-color);
+	padding: 2rem;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	max-height: 100%;
+	transform: translateY(101%);
+	transition: transform 0.3s ease-in;
+	cursor: pointer;
+}
+
+.overview a {
+	text-decoration: none;
+	color: var(--secondary-color);
+}
+
+.movie:hover .overview {
+	transform: translateY(0);
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 600px) {
+	main {
+		margin: 0;
+		padding: 0;
+	}
+
+	.movie {
+		width: 100vw;
+		height: 100vh;
+	}
+
+	.movie img {
+		width: 100%;
+	}
+}
