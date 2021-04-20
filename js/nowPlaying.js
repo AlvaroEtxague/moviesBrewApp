@@ -7,6 +7,7 @@ const NOW_PLAYING = `https://api.themoviedb.org/3/movie/now_playing?api_key=${AP
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 const main = document.getElementById('main');
+const noResultsSection = document.getElementById('no-results-section');
 
 // Get initial movies
 getMovies(NOW_PLAYING);
@@ -16,7 +17,7 @@ async function getMovies(url) {
 	const data = await response.json();
 
 	showMovies(data.results);
-	console.log(data.results);
+	showNoResults(data.results.length);
 }
 
 function showMovies(movies) {
@@ -28,7 +29,7 @@ function showMovies(movies) {
 		const movieElement = document.createElement('div');
 		movieElement.classList.add('movie');
 		movieElement.innerHTML = `
-      <img src="${IMG_PATH + poster_path}" alt="${title}" />
+			<a onclick="movieSelected('${id}')" target="_blank"><img src="${IMG_PATH + poster_path}" alt="${title}" /></a>
       
       <div class="movie-info">
           <h3>${title}</h3>
@@ -61,6 +62,18 @@ function movieSelected(id) {
 	sessionStorage.setItem('movieId', id);
 	window.location = 'moviePage.html';
 	return false;
+}
+
+function showNoResults(data) {
+	noResultsSection.innerHTML = '';
+
+	if (data === 0) {
+		let noResults = document.createElement('div');
+		noResults.classList.add('no-results');
+		noResults.innerHTML = `<h3 ><i class="far fa-sad-cry"></i> <span>No Movies Found. Try a different movie!</span></h3>`;
+
+		noResultsSection.appendChild(noResults);
+	}
 }
 
 form.addEventListener('submit', (event) => {

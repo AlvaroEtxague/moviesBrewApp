@@ -199,3 +199,14 @@ a > i:hover {
 		max-height: 50px;
 	}
 }
+
+@media screen and (max-width: 350px) {
+	.search {
+		width: 120px;
+		margin-right: 40px;
+	}
+
+	.logo {
+		display: none;
+	}
+}

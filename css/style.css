@@ -64,9 +64,11 @@ main {
 .movie-info span.green {
 	color: #0be881;
 }
+
 .movie-info span.orange {
 	color: #ffa801;
 }
+
 .movie-info span.red {
 	color: #ff3f34;
 }
@@ -94,7 +96,30 @@ main {
 	transform: translateY(0);
 }
 
-/* On screens that are 992px or less, set the background color to blue */
+.no-results-section {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	opacity: 0.6;
+}
+
+.no-results > h3 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	color: #c0392b;
+	margin-top: 200px;
+}
+
+i.fa-sad-cry {
+	font-size: 100px;
+	padding-right: 15px;
+}
+
+/* On screens that are 600px or less*/
 @media screen and (max-width: 600px) {
 	main {
 		margin: 0;
@@ -113,5 +138,23 @@ main {
 	.movie-info {
 		justify-content: space-around;
 		margin-top: 30px;
+	}
+
+	.no-results-section {
+		display: flex;
+		flex-wrap: wrap;
+		width: 80%;
+		margin: auto;
+	}
+
+	.no-results > h3 {
+		font-size: 15px;
+		color: #c0392b;
+		margin-top: 150px;
+	}
+
+	i.fa-sad-cry {
+		font-size: 50px;
+		padding-right: 10px;
 	}
 }

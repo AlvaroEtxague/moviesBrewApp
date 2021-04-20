@@ -7,6 +7,7 @@ const form = document.getElementById('form');
 const search = document.getElementById('search');
 const main = document.getElementById('main');
 const section = document.getElementById('movie');
+const noResultsSection = document.getElementById('no-results-section');
 
 // Calling getMovies to get page movies
 getMovies(API_URL);
@@ -17,6 +18,10 @@ async function getMovies(url) {
 	const data = await response.json();
 
 	showMovies(data.results);
+
+	// console.log(data.results.length);
+
+	showNoResults(data.results.length);
 }
 
 // Looping through the "movies" results and creating the "movie" html elements
@@ -29,7 +34,8 @@ function showMovies(movies) {
 		const movieElement = document.createElement('div');
 		movieElement.classList.add('movie');
 		movieElement.innerHTML = `
-      <img src="${IMG_PATH + poster_path}" alt="${title}" />
+		<a onclick="movieSelected('${id}')" target="_blank"><img src="${IMG_PATH + poster_path}" alt="${title}" /></a>
+      
       
       <div class="movie-info">
           <h3>${title}</h3>
@@ -44,6 +50,18 @@ function showMovies(movies) {
 
 		main.appendChild(movieElement);
 	});
+}
+
+function showNoResults(data) {
+	noResultsSection.innerHTML = '';
+
+	if (data === 0) {
+		let noResults = document.createElement('div');
+		noResults.classList.add('no-results');
+		noResults.innerHTML = `<h3 ><i class="far fa-sad-cry"></i> <span>No Movies Found. Try a different movie!</span></h3>`;
+
+		noResultsSection.appendChild(noResults);
+	}
 }
 
 // Getting the ratings and returning a color name that will be used in our CSS

@@ -11,6 +11,7 @@ const section = document.getElementById('movie');
 const similarMoviesSection = document.getElementById('similar-movies');
 const similarRecommendationsTitle = document.getElementById('similar-recommendations');
 const movieImage = document.getElementById('bg-movie-image');
+const noResultsSection = document.getElementById('no-results-section');
 
 // Get movie
 async function getMovie() {
@@ -20,7 +21,7 @@ async function getMovie() {
 	const data = await response.json();
 
 	showMovie(data);
-	console.log(data);
+	// console.log(data);
 }
 
 function showMovie(movie) {
@@ -82,7 +83,6 @@ async function getSimilarMovies() {
 	const data = await response.json();
 
 	showSimilarMovies(data.results);
-	console.log(data);
 }
 
 function showSimilarMovies(movies) {
@@ -102,13 +102,29 @@ function showSimilarMovies(movies) {
 	});
 }
 
+function showNoResults(data) {
+	noResultsSection.innerHTML = '';
+
+	if (data === 0) {
+		let noResults = document.createElement('div');
+		noResults.classList.add('no-results');
+		noResults.innerHTML = `<h3 ><i class="far fa-sad-cry"></i> <span>No Movies Found. Try a different movie!</span></h3>`;
+
+		noResultsSection.appendChild(noResults);
+		similarMoviesSection.style.display = 'none';
+	} else {
+		similarMoviesSection.style.display = 'flex';
+	}
+}
+
 // get movies
 async function getMovies(url) {
 	const response = await fetch(url);
 	const data = await response.json();
 
 	showMovies(data.results);
-	console.log(data.results);
+
+	showNoResults(data.results.length);
 }
 
 function showMovies(movies) {
