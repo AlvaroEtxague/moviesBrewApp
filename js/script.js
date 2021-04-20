@@ -2,26 +2,24 @@ const API_KEY = 'c25ebaf6293a1c0f487f895e7bb10cf3';
 const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query="`;
-const GENRES_URL = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
-const MOVIE_URL = `https://api.themoviedb.org/3/movie/`;
 
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 const main = document.getElementById('main');
-const genreDrama = document.getElementById('genre');
 const section = document.getElementById('movie');
 
-// Get initial movies
+// Calling getMovies to get page movies
 getMovies(API_URL);
 
+// Getting the movies results from the TMDB API
 async function getMovies(url) {
 	const response = await fetch(url);
 	const data = await response.json();
 
 	showMovies(data.results);
-	console.log(data.results);
 }
 
+// Looping through the "movies" results and creating the "movie" html elements
 function showMovies(movies) {
 	main.innerHTML = '';
 
@@ -45,11 +43,10 @@ function showMovies(movies) {
     `;
 
 		main.appendChild(movieElement);
-
-		overviewTxt = document.getElementsByClassName('overview');
 	});
 }
 
+// Getting the ratings and returning a color name that will be used in our CSS
 function getClassByRate(vote) {
 	if (vote >= 8) {
 		return 'green';
@@ -60,12 +57,14 @@ function getClassByRate(vote) {
 	}
 }
 
+// Storing the id for the movie selected and saving it to session storage
 function movieSelected(id) {
 	sessionStorage.setItem('movieId', id);
 	window.location = 'moviePage.html';
 	return false;
 }
 
+// Event listener for the search bar
 form.addEventListener('submit', (event) => {
 	event.preventDefault();
 

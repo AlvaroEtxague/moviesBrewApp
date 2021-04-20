@@ -102,6 +102,7 @@ function showSimilarMovies(movies) {
 	});
 }
 
+// get movies
 async function getMovies(url) {
 	const response = await fetch(url);
 	const data = await response.json();
@@ -128,6 +129,7 @@ function showMovies(movies) {
 	});
 }
 
+// search bar event listener
 form.addEventListener('submit', (event) => {
 	event.preventDefault();
 

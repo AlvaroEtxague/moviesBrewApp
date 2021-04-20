@@ -109,4 +109,9 @@ main {
 	.movie img {
 		width: 100%;
 	}
+
+	.movie-info {
+		justify-content: space-around;
+		margin-top: 30px;
+	}
 }

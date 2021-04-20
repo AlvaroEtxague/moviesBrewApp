@@ -2,7 +2,7 @@ const API_KEY = 'c25ebaf6293a1c0f487f895e7bb10cf3';
 const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query="`;
-const NOW_PLAYING = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`;
+const NOW_PLAYING = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=2`;
 
 const form = document.getElementById('form');
 const search = document.getElementById('search');
