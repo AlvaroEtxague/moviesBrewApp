@@ -110,7 +110,6 @@ async function getSimilarMovies() {
 
 	showSimilarMovies(data.results);
 	hideSimilarMovies(data.results.length)
-	console.log(data.results.length);
 }
 
 function showSimilarMovies(movies) {
@@ -122,7 +121,7 @@ function showSimilarMovies(movies) {
 		movieElement.classList.add('movie');
 		movieElement.innerHTML = `
 		<a onclick="movieSelected('${id}')" target="_blank">		
-				<img onclick="movieSelected('${id}')" class="similar-movie-image" src="${IMG_PATH + poster_path}" alt="${title}" />
+				<img onclick="movieSelected('${id}')" class="similar-movie-image" src="${IMG_PATH + poster_path}" onerror="if (this.src = 'https://image.tmdb.org/t/p/w1280null') this.src = 'images/error.jpg';" alt="${title}" />
 		</a>
 	`;
 
@@ -172,7 +171,7 @@ function showMovies(movies) {
 		movieElement.classList.add('movie');
 		movieElement.innerHTML = `
 		<a onclick="movieSelected('${id}')" target="_blank">		
-				<img onclick="movieSelected('${id}')" class="similar-movie-image" src="${IMG_PATH + poster_path}" alt="${title}" />
+				<img onclick="movieSelected('${id}')" class="similar-movie-image" src="${IMG_PATH + poster_path}" onerror="if (this.src = 'https://image.tmdb.org/t/p/w1280null') this.src = 'images/error.jpg';" alt="${title}" />
 		</a>
     `;
 
