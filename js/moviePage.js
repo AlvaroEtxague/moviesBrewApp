@@ -21,7 +21,6 @@ async function getMovie() {
 	const data = await response.json();
 
 	showMovie(data);
-	// console.log(data);
 }
 
 function showMovie(movie) {
@@ -78,7 +77,7 @@ function movieSelected(id) {
 
 function styleHeartIcon() { 
 	document.querySelector(".fa-heart").style.color = "#d63031";
-	document.querySelector(".fa-heart").style.backgroundColor = "#fdcb6e";
+	document.querySelector(".fa-heart").style.backgroundColor = "#f1c40f";
 	document.querySelector(".fa-heart").style.fontSize  = "20px";
 	document.querySelector(".fa-heart").style.height  = "60px";
 	document.querySelector(".fa-heart").style.width  = "60px";
@@ -87,7 +86,7 @@ function styleHeartIcon() {
 
 function styleBookmarkIcon() { 
 	document.querySelector(".fa-bookmark").style.color = "#6c5ce7";
-	document.querySelector(".fa-bookmark").style.backgroundColor = "#fdcb6e";
+	document.querySelector(".fa-bookmark").style.backgroundColor = "#f1c40f";
 	document.querySelector(".fa-bookmark").style.fontSize  = "20px";
 	document.querySelector(".fa-bookmark").style.height  = "60px";
 	document.querySelector(".fa-bookmark").style.width  = "60px";
@@ -96,7 +95,7 @@ function styleBookmarkIcon() {
 
 function styleFavoriteIcon() { 
 	document.querySelector(".fa.fa-star").style.color = "#00b894";
-	document.querySelector(".fa.fa-star").style.backgroundColor = "#fdcb6e";
+	document.querySelector(".fa.fa-star").style.backgroundColor = "#f1c40f";
 	document.querySelector(".fa.fa-star").style.fontSize  = "20px";
 	document.querySelector(".fa.fa-star").style.height  = "60px";
 	document.querySelector(".fa.fa-star").style.width  = "60px";
@@ -110,6 +109,8 @@ async function getSimilarMovies() {
 	const data = await response.json();
 
 	showSimilarMovies(data.results);
+	hideSimilarMovies(data.results.length)
+	console.log(data.results.length);
 }
 
 function showSimilarMovies(movies) {
@@ -142,6 +143,13 @@ function showNoResults(data) {
 	} else {
 		similarMoviesSection.style.display = 'flex';
 	}
+}
+
+function hideSimilarMovies(data) {
+	if (data === 0) {
+		similarMoviesSection.style.display = 'none';
+		similarRecommendationsTitle.style.display = 'none';
+	} 
 }
 
 // get movies
