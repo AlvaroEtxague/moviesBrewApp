@@ -34,7 +34,7 @@ function showMovie(movie) {
 	<div class="row">
 			<div class="col1">
 				<div class="movie-image">
-						<img src="${IMG_PATH + poster_path}" alt="${title}" />
+						<img src="${IMG_PATH + poster_path}" onerror="if (this.src = 'https://image.tmdb.org/t/p/w1280null') this.src = 'images/error.jpg';" alt="${title}" />
 				</div>  
 			</div>
 
@@ -44,9 +44,9 @@ function showMovie(movie) {
 						<div class="user-score">
 							<span class="rating ${getClassByRate(vote_average)}">${vote_average}</span>
 							<span class="user-score">User Score</span>
-							<span><i class="fa fa-heart" aria-hidden="true"></i></span>
-							<span><i class="fa fa-bookmark" aria-hidden="true"></i></span>
-							<span><i class="fa fa-star" aria-hidden="true"></i></span>
+							<span><i onclick="styleHeartIcon()" class="fa fa-heart" aria-hidden="true"></i></span>
+							<span><i onclick="styleBookmarkIcon()" class="fa fa-bookmark" aria-hidden="true"></i></span>
+							<span><i onclick="styleFavoriteIcon()" class="fa fa-star" aria-hidden="true"></i></span>
 						</div>
 
 						<h4>Overview</h4>
@@ -74,6 +74,33 @@ function movieSelected(id) {
 	sessionStorage.setItem('movieId', id);
 	window.location = 'moviePage.html';
 	return false;
+}
+
+function styleHeartIcon() { 
+	document.querySelector(".fa-heart").style.color = "#d63031";
+	document.querySelector(".fa-heart").style.backgroundColor = "#fdcb6e";
+	document.querySelector(".fa-heart").style.fontSize  = "20px";
+	document.querySelector(".fa-heart").style.height  = "60px";
+	document.querySelector(".fa-heart").style.width  = "60px";
+	document.querySelector(".fa-heart").style.padding  = "1em";
+}
+
+function styleBookmarkIcon() { 
+	document.querySelector(".fa-bookmark").style.color = "#6c5ce7";
+	document.querySelector(".fa-bookmark").style.backgroundColor = "#fdcb6e";
+	document.querySelector(".fa-bookmark").style.fontSize  = "20px";
+	document.querySelector(".fa-bookmark").style.height  = "60px";
+	document.querySelector(".fa-bookmark").style.width  = "60px";
+	document.querySelector(".fa-bookmark").style.padding  = "1em";
+}
+
+function styleFavoriteIcon() { 
+	document.querySelector(".fa.fa-star").style.color = "#00b894";
+	document.querySelector(".fa.fa-star").style.backgroundColor = "#fdcb6e";
+	document.querySelector(".fa.fa-star").style.fontSize  = "20px";
+	document.querySelector(".fa.fa-star").style.height  = "60px";
+	document.querySelector(".fa.fa-star").style.width  = "60px";
+	document.querySelector(".fa.fa-star").style.padding  = "1em";
 }
 
 async function getSimilarMovies() {

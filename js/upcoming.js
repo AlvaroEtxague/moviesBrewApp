@@ -29,7 +29,7 @@ function showMovies(movies) {
 		const movieElement = document.createElement('div');
 		movieElement.classList.add('movie');
 		movieElement.innerHTML = `
-		<a onclick="movieSelected('${id}')" target="_blank"><img src="${IMG_PATH + poster_path}" alt="${title}" /></a>
+		<a onclick="movieSelected('${id}')" target="_blank"><img src="${IMG_PATH + poster_path}" onerror="if (this.src = 'https://image.tmdb.org/t/p/w1280null') this.src = 'images/error.jpg';" alt="${title}" /></a>
       
       <div class="movie-info">
           <h3>${title}</h3>
