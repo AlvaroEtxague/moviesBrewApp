@@ -156,11 +156,11 @@ Each page has it's own .js file containing functionality exclusive to that page.
 - The website should be fully responsive and follow a "mobile first" approach.
 
 - The colors palette include the following colors:
-	-- primary color: #485460;
-	-- secondary color: #1e272e;
-	-- light color: #d2dae2;
-  -- red color for errors: #c0392b 
-  -- green color for links and happy interactions: 0be881 
+    - primary color: #485460;
+	- secondary color: #1e272e;
+	- light color: #d2dae2;
+    - red color for errors: #c0392b 
+    - green color for links and happy interactions: 0be881 
 
 - Fonts used: Google Fonts - Raleway family
 
